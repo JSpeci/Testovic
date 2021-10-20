@@ -8,11 +8,11 @@ export interface MyRoute {
 
 export class AppRoutes {
 
-    public static readonly AppName: string = "Company Admin";
-    public static readonly AppBaseRoute: string = "/Ca";
+    public static readonly AppName: string = "Testovic";
+    public static readonly AppBaseRoute: string = "/dist";
 
     public static readonly HomeWorkspace: MyRoute = {
-        displayName: "Company Admin",
+        displayName: "Testovic app",
         name: "workspace",
         url: AppRoutes.AppBaseRoute,
         urlWithoutParams: AppRoutes.AppBaseRoute,

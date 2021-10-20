@@ -21,6 +21,8 @@ interface AppProps {
 export const App = observer(class App extends React.Component<AppProps> {
 
     render() {
+        console.log(this.props.routing.location.pathname);
+        console.log(AppRoutes.HomeWorkspace.url);
         const stores = this.props.stores;
         if (document.title != AppRoutes.AppName) {
             document.title = AppRoutes.AppName;

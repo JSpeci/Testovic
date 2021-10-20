@@ -9,8 +9,8 @@ module.exports = {
     index: './src/index.tsx',
   },
   output: {
-    path: path.resolve(__dirname, '../ARMS/Src/ARMS/WebApp/wwwroot'),
-    filename: 'ca.bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
   },
   devtool: "source-map",
   resolve: {

@@ -8,7 +8,9 @@
   "scripts": {
     "build": "npx webpack",
     "test": "npx jest",
-    "tw": "npx jest --watchAll"
+    "tw": "npx jest --watchAll",
+    "start": "npm run open",
+    "open": "concurrently \"http-server -a localhost -p 1234\" \"open http://localhost:1234/build\""
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
@@ -52,9 +54,11 @@
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "babel-loader": "^8.2.2",
+    "concurrently": "^6.3.0",
     "css-loader": "^5.2.4",
     "eslint": "^7.24.0",
     "eslint-webpack-plugin": "^2.5.4",
+    "http-server": "^14.0.0",
     "jest": "^27.0.4",
     "jest-css-modules-transform": "^4.3.0",
     "source-map-loader": "^2.0.1",
