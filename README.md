@@ -48,5 +48,5 @@ Initial project with example solution and basic data.
 * Implement delete command with respect to your tests and project structure
 
 ## Q&A
-* if you have any questions during the work, feel free to contact me
+* If you have any questions during the work, feel free to contact me
 * When you're done, send a message and I will pull your repository and check the result
