@@ -91,6 +91,13 @@ export class MonitoringLibrariesQueryHandler extends AQueryHandler {
             .then(i => {
                 lm.SetArray(i.data);
                 lm.loading = false;
+
+                const dm = this.MonitoringStore.MonitoringLibraryDetailModel.MonitoringQuestionDetailModel;
+                const find = lm.Items.find(j => j.questionID === qId);
+                if (find) {
+                    dm.setDto(find)
+                }
+
             });
     }
 }

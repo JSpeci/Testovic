@@ -6,6 +6,7 @@ export class AQueryHandler {
     constructor(private readonly LoginModel: ILoginModel) { }
 
     protected ReadTokenFromCookie(): string {
+        // dummy
         return "token";
     }
 

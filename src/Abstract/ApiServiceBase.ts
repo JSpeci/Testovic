@@ -12,7 +12,6 @@ export class DummyApiService extends IApiServiceBase {
 
     public async makeApiRequest(url: string, token: string | undefined, body?: any): Promise<any> {
 
-        console.log(url, body);
         // switch case url
         switch (url) {
             case ("api/q/adm/mon/q/l/GridRows"):
