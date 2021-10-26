@@ -7,40 +7,46 @@ Initial project with example solution and basic data.
 
 ## Instructions
 
-* install node.js to your computer
-* open terminal (iam using terminal in VSCode)
-* recommended IDE is VSCode
-* go to https://www.telerik.com/kendo-react-ui/
-* Start free trial account, register
-* go to https://www.telerik.com/kendo-react-ui/my-license/
+* Install node.js to your computer
+* Open terminal (iam using terminal in VSCode)
+* Go to https://www.telerik.com/kendo-react-ui/
+* Start free trial account, or use your own license, if you have.
+* Go to https://www.telerik.com/kendo-react-ui/my-license/ or https://www.telerik.com/kendo-react-ui/getting-started/
 * On this page you can get your trial 30day trial key
-* Download that key and paste it next to package.json file
+* Download that key and paste it next to *package.json* file
+* terminal: in folder with package.json run **npm install**
 * terminal: **npm install --save @progress/kendo-licensing**
 * terminal: **npx kendo-ui-license activate**
-* terminal: in folder with package.json run **npm install**
-* it takes some time to download and install all dependencies listed in package.json file
-* now you should be able to build it
+* It takes some time to download and install all dependencies listed in *package.json* file
+* Now you should be able to build it
 * terminal: **webpack**
-* now you have dist folder next to src folder
-* terminal: npm run start
-* open web browser and go to localhost:1234/dist
+* Now you have dist folder next to src folder
+* terminal: **npm run start**
+* Open web browser and go to localhost:1234/dist
 
 ## Test Level1 instructions
+* Study the structure of the project, run it and use "debugger" if necessary
 * Fix css on monitoring library detail
-* Open another terminal and run: **npx jest**, should be ok
-* implement two tests in LibrariesListQuery.tests ( use jest, react-testing-library, enzyme, etc..)
-* Make alive create new monitoring library dialog - it adds library to dummy server
-* write tests: 
-    * if dialog is shown after New Monitoring Library button clicked
-    * if dialog has name field
-    * if new library was added to dummy server libs array
-    * if new library is shown in table
-* another tests:
-    * if table has columns Name, CountOfPools, Questions
-* write empty/skipped tests on appearance for monitoring library detail
+* Open another terminal and run: **npx jest**, there should be two skipped tests
+* Implement two tests in *"LibrariesListQuery.tests.ts"* ( use jest, react-testing-library, enzyme, etc..)
+* Inspect, why *NewMonitoringLibraryDialog* did not appear and fix that
+* Write tests checking that: 
+    * Dialog is shown after New Monitoring Library button clicked
+    * Dialog has name field
+    * New library was added to dummy server libs array
+    * New library is shown in table
+* Inspect, if library is added
+* Another tests:
+    * Test if there is a table
+    * Test if the table has columns Name, CountOfPools, Questions
+* Write empty/skipped tests on appearance for Monitoring Library Detail
 * Do all with respect to current structure of app
 ## Test Level2 instructions
-* Add Are you sure dialog, use Kendo react dialogs, for Delete Library button on Lib detail
-* write empty tests with named headers expectations for this command
-* Try to implement tests - use MobxProvider to provide store to component in test
-* Make alive delete command
+* Add Are you sure dialog, use Kendo react dialogs, for Delete Library button on Monitoring Library Detail
+* Add empty tests for Library Deletion (appearance of dialog, appearance of table, value deletion from list). Test names should reflect expected behaviour.
+* Implement tests - use MobxProvider to provide store to component in test
+* Implement delete command with respect to your tests and project structure
+
+## Q&A
+* if you have any questions during the work, feel free to contact me
+* When you're done, send a message and I will pull your repository and check the result
