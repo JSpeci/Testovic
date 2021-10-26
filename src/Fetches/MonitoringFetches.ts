@@ -1,4 +1,4 @@
-import { ApiServiceBase } from "../Abstract/ApiServiceBase";
+import { DummyApiService } from "../Abstract/ApiServiceBase";
 import { CreateCommandResponse, CommandResponse } from "../Abstract/Response";
 import { MonitoringDtos } from "../Dtos/Monitoring";
 
@@ -16,16 +16,13 @@ export namespace MonitoringFetches {
         monitoringQuestionChangeName(token: string | undefined, query: MonitoringDtos.ChangeNameCommand): Promise<CommandResponse>;
         monitoringQuestionChangeIsMandatory(token: string | undefined, query: MonitoringDtos.ChangeIsMandatoryCommand): Promise<CommandResponse>;
         monitoringQuestionChangeAnswerType(token: string | undefined, query: MonitoringDtos.ChangeAnswerTypeCommand): Promise<CommandResponse>;
-        monitoringMutationsCreate(token: string | undefined, query: MonitoringDtos.CreateMutationCommand): Promise<CreateCommandResponse>;
-        monitoringMutationsRemove(token: string | undefined, query: MonitoringDtos.RemoveMutationCommand): Promise<CommandResponse>;
-        monitoringMutationsChangeLocalizedQuestion(token: string | undefined, query: MonitoringDtos.ChangeLocalizedQuestionCommand): Promise<CommandResponse>;
         monitoringLibraryCreate(token: string | undefined, query: MonitoringDtos.CreateLibraryCommand): Promise<CreateCommandResponse>;
         monitoringLibraryRemove(token: string | undefined, query: MonitoringDtos.RemoveLibraryCommand): Promise<CommandResponse>;
         monitoringLibraryChangeName(token: string | undefined, query: MonitoringDtos.ChangeLibraryNameCommand): Promise<CommandResponse>;
         monitoringLibraryChangeNote(token: string | undefined, query: MonitoringDtos.ChangeNoteCommand): Promise<CommandResponse>;
     }
 
-    export class Queries extends ApiServiceBase {
+    export class Queries extends DummyApiService {
         // Monitoring
 
         public async getMonitoringLibrariesGridRows(token: string | undefined, query: MonitoringDtos.GridRowsQuery): Promise<MonitoringDtos.GridRowsResponse> {
@@ -37,14 +34,9 @@ export namespace MonitoringFetches {
             const result = await super.makeApiRequest("api/q/adm/mon/q/GridRows", token, query);
             return result;
         };
-
-        public async getMonitoringQuestionMutations(token: string | undefined, query: MonitoringDtos.MutationsQuery): Promise<MonitoringDtos.MutationsResponse> {
-            const result = await super.makeApiRequest("api/q/adm/mon/q/Mutations", token, query);
-            return result;
-        };
     }
 
-    export class Commands extends ApiServiceBase {
+    export class Commands extends DummyApiService {
         // Monitoring questions
 
         public async monitoringQuestionCreate(token: string | undefined, query: MonitoringDtos.CreateQuestionCommand): Promise<CreateCommandResponse> {
@@ -69,23 +61,6 @@ export namespace MonitoringFetches {
 
         public async monitoringQuestionChangeAnswerType(token: string | undefined, query: MonitoringDtos.ChangeAnswerTypeCommand): Promise<CommandResponse> {
             const result = await super.makeApiRequest("api/c/adm/mon/q/ChangeAnswerType", token, query);
-            return result;
-        };
-
-        // Monitoring mut
-
-        public async monitoringMutationsCreate(token: string | undefined, query: MonitoringDtos.CreateMutationCommand): Promise<CreateCommandResponse> {
-            const result = await super.makeApiRequest("api/c/adm/mon/q/m/Create", token, query);
-            return result;
-        };
-
-        public async monitoringMutationsRemove(token: string | undefined, query: MonitoringDtos.RemoveMutationCommand): Promise<CommandResponse> {
-            const result = await super.makeApiRequest("api/c/adm/mon/q/m/Remove", token, query);
-            return result;
-        };
-
-        public async monitoringMutationsChangeLocalizedQuestion(token: string | undefined, query: MonitoringDtos.ChangeLocalizedQuestionCommand): Promise<CommandResponse> {
-            const result = await super.makeApiRequest("api/c/adm/mon/q/m/ChangeLocalizedQuestion", token, query);
             return result;
         };
 

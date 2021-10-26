@@ -1,26 +1,26 @@
-export class ApiServiceBase {
+import { DummyServer } from "../Dummies/DummyServer";
+import { IApiServiceBase } from "./IApiServiceBase";
 
-    private baseUrl: string = window.location.protocol + "//" + window.location.host + "/";
-  
-    private getHeaders(token: string | undefined): Headers {
-        const myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        myHeaders.append("Token", token || "");
-        return myHeaders;
+export class DummyApiService extends IApiServiceBase {
+
+    private server: DummyServer;
+
+    constructor() {
+        super();
+        this.server = new DummyServer();
     }
 
     public async makeApiRequest(url: string, token: string | undefined, body?: any): Promise<any> {
-        const querySring = this.baseUrl + url;
-        const myInit = {
-            method: 'POST',
-            headers: this.getHeaders(token),
-            body: JSON.stringify(body),
-        };
-        return fetch(querySring, myInit).then((response) => {
-            return response.json();
-        })
-            .catch(error => {
-                console.error(error);
-            });
-    } 
+
+        console.log(url, body);
+        // switch case url
+        switch (url) {
+            case ("api/q/adm/mon/q/l/GridRows"):
+                return this.server.GetMonitoringLibraries();
+            case ("api/q/adm/mon/q/GridRows"):
+                return this.server.GetMonitoringQuestions(body);
+        }
+
+    }
+
 }
